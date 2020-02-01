@@ -4,11 +4,11 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
-	<body id="board" onload="Ready()">
+	<body id="board" onload="ready()">
 		<canvas id="main" width="600" height="600"></canvas>
 		<div id="controller">
-			<button id="draw" type="button" class="btn btn-primary" onclick="Draw();">Draw</button>
-			<button id="clear" type="button" class="btn btn-danger" onclick="Clear();">Clear</button>
+			<button id="draw" type="button" class="btn btn-primary" onclick="drawConvex()">Draw</button>
+			<button id="clear" type="button" class="btn btn-danger" onclick="clearBoard()">Clear</button>
 			<div id="area" class="alert alert-light" role="alert">Area: 0</div>
 			<script type="text/javascript" src="js/convex.js"></script>
 			<script type="text/javascript" src="js/main.js"></script>

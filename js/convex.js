@@ -1,9 +1,4 @@
 class Point {
-	x;
-	y;
-	p;
-	q;
-
 	constructor(_x, _y, _p, _q) {
 		this.x = _x;
 		this.y = _y;

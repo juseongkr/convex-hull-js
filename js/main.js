@@ -2,7 +2,7 @@ const canvas = document.getElementById("main");
 const ctx = canvas.getContext("2d");
 let p = [];
 
-function Ready() {
+function ready() {
 	canvas.addEventListener("click", event => {
 		let circle = new Path2D();
 		circle.arc(event.layerX, event.layerY, 2, 0, Math.PI * 2);
@@ -11,25 +11,32 @@ function Ready() {
 	});
 }
 
-function Draw() {
+function drawConvex() {
 	if (p.length !== 0) {
 		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-		p = scan(p).slice();
-		p.push(p[0]);
+		let sp = scan(p).slice();
+		sp.push(sp[0]);
 		ctx.beginPath();
 		ctx.lineWidth = 3;
-		ctx.strokeStyle = "blue";
-		ctx.moveTo(p[0].x, p[0].y);
-		for (let i=1; i<p.length; ++i) {
-			ctx.lineTo(p[i].x, p[i].y);
-			ctx.moveTo(p[i].x, p[i].y);
+		ctx.strokeStyle = "#6699ff";
+		ctx.moveTo(sp[0].x, sp[0].y);
+		sp.shift();
+		sp.forEach(pos => {
+			ctx.lineTo(pos.x, pos.y);
+			ctx.moveTo(pos.x, pos.y);
 			ctx.stroke();
-		}
+		});
+		p.forEach(pos => {
+			let circle = new Path2D();
+			circle.arc(pos.x, pos.y, 2, 0, Math.PI * 2);
+			ctx.fill(circle);
+		});
+
 		document.getElementById("area").innerHTML = "Area: " + getArea(p);
 	}
 }
 
-function Clear() {
+function clearBoard() {
 	p = [];
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 	document.getElementById("area").innerHTML = "Area: 0";
