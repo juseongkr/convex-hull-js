@@ -1,5 +1,6 @@
 const canvas = document.getElementById("main");
 const ctx = canvas.getContext("2d");
+let penColor = "#6699ff";
 let p = [];
 
 function ready() {
@@ -18,7 +19,7 @@ function drawConvex() {
 		sp.push(sp[0]);
 		ctx.beginPath();
 		ctx.lineWidth = 3;
-		ctx.strokeStyle = "#6699ff";
+		ctx.strokeStyle = penColor;
 		ctx.moveTo(sp[0].x, sp[0].y);
 		sp.shift();
 		sp.forEach(pos => {
@@ -40,4 +41,8 @@ function clearBoard() {
 	p = [];
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 	document.getElementById("area").innerHTML = "Area: 0";
+}
+
+function updateColor(jscolor) {
+	penColor = "#" + jscolor;
 }
