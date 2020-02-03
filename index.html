@@ -9,9 +9,11 @@
 		<div id="controller">
 			<button id="draw" type="button" class="btn btn-primary" onclick="drawConvex()">Draw</button>
 			<button id="clear" type="button" class="btn btn-danger" onclick="clearBoard()">Clear</button>
-			<div id="area" class="alert alert-light" role="alert">Area: 0</div>
-			<script type="text/javascript" src="js/convex.js"></script>
-			<script type="text/javascript" src="js/main.js"></script>
 		</div>
+		<div id="color">Pen color: <input class="jscolor" value="#6699ff" onchange="updateColor(this.jscolor)"></div>
+		<div id="area" class="alert alert-light" role="alert">Area: 0</div>
+		<script type="text/javascript" src="js/convex.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/jscolor.js"></script>
 	</body>
 </html>
